@@ -20,6 +20,8 @@ func newConn() (conn, error) {
 		return nil, err
 	}
 
+	c.SetReadBuffer(0x100000 * 32)
+
 	return &sysConn{
 		c: c,
 	}, nil
